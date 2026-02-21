@@ -1,67 +1,241 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
 }
 
-h1 {
-  text-align: center;
+/* Header */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* 🔍 Search Bar */
+.search-bar {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.search-bar input {
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    border: none;
+    width: 260px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+#clear-search {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Main Container */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Controls Section */
 .controls {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
-button {
-  padding: 8px 12px;
-  margin: 0 5px;
-  border: none;
-  background-color: #ddd;
-  cursor: pointer;
-  border-radius: 4px;
+.filters, .sort {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
-button.active {
-  background-color: #4caf50;
-  color: white;
+.controls button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #bfa2ff; /* light lavender button */
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.controls button:hover {
+    background-color: #9c79ff; /* darker lavender on hover */
+    transform: translateY(-2px);
+}
+
+.controls button.active {
+    background-color: #764ba2; /* deep purple for active */
+    box-shadow: 0 0 0 2px white inset;
+}
+
+/* 🔢 Recipe Counter */
+.recipe-counter {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #555;
+    text-align: right;
+}
+
+/* Recipe Container - Flexbox Grid */
 #recipe-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
 }
 
+/* Recipe Card */
 .recipe-card {
-  border: 1px solid #ccc;
-  padding: 12px;
-  border-radius: 6px;
-  width: 220px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #f3e8ff 0%, #ffffff 100%); /* light lavender gradient */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    width: 300px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #e6d4ff 0%, #ffffff 100%); /* slightly darker on hover */
+}
+
+.recipe-card h3 {
+    color: #6a4dff; /* darker lavender for title */
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 1rem;
+    margin: 0.75rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.recipe-card p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Difficulty Badges */
+.difficulty {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.difficulty.easy {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.difficulty.medium {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.difficulty.hard {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ❤️ Favorite Icon */
+.favorite {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #ccc;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite.active {
+    color: #ff4d6d;
+    transform: scale(1.2);
+}
+
+/* Steps & Ingredients Containers */
 .steps-container,
 .ingredients-container {
-  display: none; /* hidden by default */
-  margin-top: 10px;
-  padding-left: 15px;
+    display: none;
+    margin-top: 10px;
+    padding-left: 25px;
+    color: #555;
+    border-left: 2px dashed #764ba2; /* lavender border */
+    padding-left: 15px;
 }
 
 .steps-container.visible,
 .ingredients-container.visible {
-  display: block;
+    display: block;
 }
 
-.steps-container ol {
-  padding-left: 20px;
+/* Nested Steps Indentation */
+.steps-container ol ol {
+    padding-left: 20px;
+    color: #888;
 }
 
-.steps-container li {
-  margin-bottom: 4px;
+/* Hover effects for list items */
+.steps-container li:hover,
+.ingredients-container li:hover {
+    color: #6a4dff; /* lavender hover */
 }
 
-.steps-container li .substeps {
-  padding-left: 15px;
-  list-style-type: "→";
+/* Empty State */
+.empty-message {
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .recipe-counter {
+        text-align: center;
+    }
 }
