@@ -37,6 +37,31 @@ button.active {
   border: 1px solid #ccc;
   padding: 12px;
   border-radius: 6px;
-  width: 200px;
+  width: 220px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.steps-container,
+.ingredients-container {
+  display: none; /* hidden by default */
+  margin-top: 10px;
+  padding-left: 15px;
+}
+
+.steps-container.visible,
+.ingredients-container.visible {
+  display: block;
+}
+
+.steps-container ol {
+  padding-left: 20px;
+}
+
+.steps-container li {
+  margin-bottom: 4px;
+}
+
+.steps-container li .substeps {
+  padding-left: 15px;
+  list-style-type: "→";
 }
