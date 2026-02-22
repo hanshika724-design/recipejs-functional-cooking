@@ -6,8 +6,8 @@ It lets users search, filter, and sort recipes, view steps and ingredients, and 
 ---
 
 ## 🚀 Live Demo
-🔗 [View Live Project](#)  
-*(Replace `#` with your Netlify / GitHub Pages / Vercel link)*
+🔗 [View Live Project]
+(https://hanshika724-design.github.io/recipejs-functional-cooking/)
 
 ---
 
